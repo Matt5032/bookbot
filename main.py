@@ -1,5 +1,5 @@
 
-books = "frankenstein.txt"
+books = r'C:\workspace\github.com\Matt5032\bookbot\frankenstein.txt'
 
 with open(books) as f:
     file_contents = f.read()
@@ -28,6 +28,10 @@ def print_report(file_contents):
     
     print(f"--- Begin report of {books} ---")
     print(f"{word_count} words found in the document")
-    
+    letter_list = count_letters(file_contents)
+    sorted_list = sorted(letter_list.items(), key=lambda x: x[1], reverse=True)
+    for letter, count in sorted_list:
+        if letter.isalpha():
+            print(f"The '{letter}' character was found {count} times")
     
 print_report(file_contents)
