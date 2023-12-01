@@ -10,7 +10,7 @@ def count_words(file_contents):
     for word in file_contents.split():
         i += 1
     
-    print(i)
+    return i
     
 def count_letters(file_contents):
     word_list = file_contents.lower().split()
@@ -21,7 +21,13 @@ def count_letters(file_contents):
                 letter_list[letter] += 1
             else:
                 letter_list[letter] = 1
-    print(letter_list)
+    return letter_list
     
-count_words(file_contents)
-count_letters(file_contents)
+def print_report(file_contents):
+    word_count = count_words(file_contents)
+    
+    print(f"--- Begin report of {books} ---")
+    print(f"{word_count} words found in the document")
+    
+    
+print_report(file_contents)
